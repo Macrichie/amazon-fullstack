@@ -61,6 +61,7 @@ h1 {
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
+  color: #203040;
 }
 a {
   text-decoration: none;
@@ -117,4 +118,9 @@ img.medium {
 .rating span {
   color: #f0c040;
   margin: 0.1rem;
+}
+
+.rating span:last-child {
+  color: #203040;
+  padding-left: 10px;
 }
