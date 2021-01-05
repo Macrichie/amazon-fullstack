@@ -1,12 +1,13 @@
 import React from "react";
-import Product from "./components/Product";
-import data from "./data";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomeScreen from "./pages/HomeScreen";
+import ProductScreen from "./pages/ProductScreen";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <div className="grid-container">
-        <header>
+        <header className="row">
           <div>
             <a className="brand" href="/">
               Amazon FS
@@ -18,15 +19,12 @@ function App() {
           </div>
         </header>
         <main>
-          <div className="row center">
-            {data.products.map((product) => (
-              <Product key={product._id} product={product}/>
-            ))}
-          </div>
+          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route exact path="/" component={HomeScreen}></Route>
         </main>
         <footer>Designed by Olakunle</footer>
       </div>
-    </div>
+    </Router>
   );
 }
 
