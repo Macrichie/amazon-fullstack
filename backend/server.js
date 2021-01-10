@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
-import bodyParser from "body-parser";
 
 dotenv.config()
 
