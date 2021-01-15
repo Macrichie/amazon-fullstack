@@ -77,7 +77,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: #FEBD69;
 }
 .welcome {
   color: #ffffff;
@@ -123,7 +123,7 @@ button:hover {
 }
 
 button.primary {
-  background-color: #f0c040;
+  background-color: #FEBD69;
 }
 button.block {
   width: 100%;
@@ -142,7 +142,7 @@ a.brand {
 }
 
 .badge {
-  background-color: #b98b0d;
+  background-color: #FEBD69;
   color: #ffffff;
   border-radius: 3px;
   padding: 0.2rem 0.7rem;
@@ -218,7 +218,7 @@ img.large {
 
 /* Rating */
 .rating span {
-  color: #f0c040;
+  color:#FEBD69;
   margin: 0.1rem;
 }
 
@@ -267,6 +267,7 @@ img.large {
 .form {
   max-width: 60rem;
   margin: 0 auto;
+  margin-bottom: 5rem;
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 1rem;
@@ -287,4 +288,17 @@ img.large {
 }
 .form label {
   margin: 1rem 0;
+}
+
+/* Checkout steps */
+.checkout__steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+.checkout__steps > div.active {
+  border-top-color: #FEBD69;
+  color: #f08000;
 }
