@@ -125,6 +125,9 @@ button:hover {
 button.primary {
   background-color: #FEBD69;
 }
+button:active {
+  outline: none;
+}
 button.block {
   width: 100%;
 }
@@ -257,10 +260,17 @@ img.large {
 .alert-info {
   color: #2020a0;
   background-color: #e0e0ff;
+  border-color: #2020a0;
 }
 .alert-danger {
   color: #a02020;
   background-color: #ffe0e0;
+  border-color: #a02020;
+}
+.alert-success {
+  color: #20a020;
+  background-color: #c6f8a9;
+  border-color:  #20a020;
 }
 
 /* Form */
