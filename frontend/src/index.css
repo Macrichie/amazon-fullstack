@@ -132,6 +132,10 @@ button.block {
   width: 100%;
 }
 
+button.small {
+  font-size: 1.2rem;
+}
+
 /* Header */
 header a {
   color: #ffffff;
@@ -269,7 +273,7 @@ img.large {
 }
 .alert-success {
   color: #20a020;
-  background-color: #c6f8a9;
+  background-color: #eeffe0;
   border-color:  #20a020;
 }
 
@@ -312,3 +316,26 @@ img.large {
   border-top-color: #FEBD69;
   color: #f08000;
 }
+
+.orderHistory {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.2rem;
+}
+

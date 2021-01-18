@@ -13,6 +13,7 @@ function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
+
   const orderPay = useSelector((state) => state.orderPay);
   const {
     loading: loadingPay,
@@ -50,7 +51,7 @@ function OrderScreen(props) {
   }, [dispatch, order, orderId, sdkReady, successPay]);
 
   const successPaymentHandler = (paymentResult) => {
-    //   dispatch action
+    //   dispatch order payment
     dispatch(paymentOrder(order, paymentResult));
   };
 
@@ -170,9 +171,8 @@ function OrderScreen(props) {
                       {errorPay && (
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}
-                      {loadingPay && (
-                        <LoadingBox variant="danger">{loadingPay}</LoadingBox>
-                      )}
+                      {loadingPay && <LoadingBox></LoadingBox>}
+
                       <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}
