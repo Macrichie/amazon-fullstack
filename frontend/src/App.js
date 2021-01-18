@@ -32,7 +32,7 @@ function App() {
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              Amazon FS
+              Amazoné
             </Link>
           </div>
           <div className="menu">
@@ -81,7 +81,7 @@ function App() {
                   <Link to="#admin">
                     Admin <i className="fa fa-caret-down"></i>
                   </Link>
-                  <ul class="dropdown-content">
+                  <ul className="dropdown-content">
                     <li>
                       <Link to="/dashboard">Dashboard</Link>
                     </li>
