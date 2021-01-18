@@ -2,9 +2,10 @@
   "name": "amazon-fullstack",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ecommerce website",
   "main": "index.js",
   "scripts": {
+    "build": "cd frontend && npm install && npm run build",
     "start": "nodemon --watch backend --exec  node --experimental-modules backend/server.js"
   },
   "repository": {
@@ -28,5 +29,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
-  }
+  },
+  "engines": {"node":"12.4.0", "npm": "6.9.0"}
 }
