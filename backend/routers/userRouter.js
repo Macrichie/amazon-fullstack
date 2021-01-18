@@ -3,7 +3,7 @@ import expressAsynHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import data from "../data.js";
 import User from "../models/userModel.js";
-import { generateToken } from "../utils.js";
+import { generateToken, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -39,23 +39,38 @@ userRouter.post(
 );
 
 // Register
-userRouter.post('/register', expressAsynHandler(async(req, res) => {
-  const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
-  })
+userRouter.post(
+  "/register",
+  expressAsynHandler(async (req, res) => {
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 8),
+    });
 
-  const createdUser = await user.save()
-  res.send({
-    _id: createdUser._id,
-    name: createdUser.name,
-    email: createdUser.email,
-    isAdmin: createdUser.isAdmin,
-    isSeller: createdUser.isSeller,
-    token: generateToken(createdUser),
+    const createdUser = await user.save();
+    res.send({
+      _id: createdUser._id,
+      name: createdUser.name,
+      email: createdUser.email,
+      isAdmin: createdUser.isAdmin,
+      isSeller: createdUser.isSeller,
+      token: generateToken(createdUser),
+    });
   })
+);
 
-}))
+// get user profile
+userRouter.get(
+  "/:id",
+  expressAsynHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).send({ message: "User Not Found" });
+    }
+  })
+);
 
 export default userRouter;

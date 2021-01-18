@@ -285,9 +285,9 @@ img.large {
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 1rem;
-  box-shadow: 4px 7px 8px -4px rgba(0,0,0,0.61);
+  /* box-shadow: 4px 7px 8px -4px rgba(0,0,0,0.61);
   -webkit-box-shadow: 4px 7px 8px -4px rgba(0,0,0,0.61);
-  -moz-box-shadow: 4px 7px 8px -4px rgba(0,0,0,0.61);
+  -moz-box-shadow: 4px 7px 8px -4px rgba(0,0,0,0.61); */
 }
 .form > div > input:focus {
   outline: none;
