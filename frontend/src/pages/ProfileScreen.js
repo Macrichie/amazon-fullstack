@@ -26,13 +26,16 @@ export default function ProfileScreen() {
 
   useEffect(() => {
     if (!user) {
+        // reset successUpdate eachtime user profile is opened for the second time
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
+    //   if user is null, dispatch action to pull data from backend
       dispatch(detailsUser(userInfo._id));
     } else {
       // fill name & email fields with data from backend
       setName(user.name);
       setEmail(user.email);
     }
+    // if user object change from null to containing data from backend, useEffect runs again
   }, [dispatch, userInfo._id, user]);
 
   const submitHandler = (e) => {

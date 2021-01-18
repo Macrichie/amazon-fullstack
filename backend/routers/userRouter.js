@@ -85,7 +85,7 @@ userRouter.put(
       user.name = req.body.name || user.name;
       // use email entered or use the email stored in the database
       user.email = req.body.email || user.email;
-      // if new password has been entered
+      // if new password has been entered, encrypt the password before saving
       if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
       }
