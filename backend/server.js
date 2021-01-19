@@ -9,8 +9,10 @@ import orderRouter from "./routers/orderRouter.js";
 dotenv.config();
 
 const app = express();
+const __dirname = path.resolve();
+
 mongoose.connect(
-  process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/amazonfs",
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/amazonfs",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -32,7 +34,7 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });
 
-const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname, "/frontend/build")));
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
@@ -48,5 +50,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server Listening at http:localhost:${port}`);
+  console.log(`Server Listening at port: ${port}`);
 });
