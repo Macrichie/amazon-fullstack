@@ -8,6 +8,7 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../constants/productConstants";
 
+// action function
 export const listProducts = () => async (dispatch) => {
   dispatch({
     type: PRODUCT_LIST_REQUEST,
@@ -37,12 +38,13 @@ export const productDetails = (productId) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+    // if server return error, then display server error message else display generic error message
+    const message = error.response && error.response.data.message
+    ? error.response.data.message
+    : error.message
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: message,
     });
   }
 };

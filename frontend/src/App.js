@@ -101,7 +101,9 @@ function App() {
           </div>
         </header>
         <main>
+          {/* /cart/:id? -> ? is added so if user directly goto cart, it should show shopping cart without adding a new item to the cart */}
           <Route path="/cart/:id?" component={CartScreen}></Route>
+          
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>

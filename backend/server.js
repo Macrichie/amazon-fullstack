@@ -10,17 +10,9 @@ dotenv.config();
 
 const app = express();
 const __dirname = path.resolve();
-// for local database connection
-// mongoose.connect(
-//   process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/amazonfs",
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//   }
-// );
+
 mongoose.connect(
-  "mongodb+srv://hyperware:pass1830@cluster0.hyn2f.mongodb.net/amazonfs?retryWrites=true&w=majority",
+  process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/amazonfs",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

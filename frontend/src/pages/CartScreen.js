@@ -5,15 +5,15 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 
 function CartScreen(props) {
-  const dispatch = useDispatch();
   const productId = props.match.params.id;
   const qty = props.location.search
-    ? Number(props.location.search.split("=")[1])
-    : 1;
-
+  ? Number(props.location.search.split("=")[1])
+  : 1;
+  
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-
+  
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(addToCart(productId, qty));
   }, [dispatch, productId, qty]);

@@ -9,12 +9,12 @@ import {
 export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
-      // Note that data._id was stored as product
       const currentItemToBeAdded = action.payload;
+      // Note that data._id was stored as product
       const existingItemInCart = state.cartItems.find(
         (item) => item.product === currentItemToBeAdded.product
       );
-      // if item exist in cart, then we replace existingItemInCart with currentItemToBeAdded
+      // if existingItemInCart is true, then we replace existingItemInCart with currentItemToBeAdded, else add new item to cart
       if (existingItemInCart) {
         return {
           ...state,

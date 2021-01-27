@@ -9,6 +9,7 @@ import { listProducts } from "../actions/productActions";
 function HomeScreen() {
   const dispatch = useDispatch()
   const productList = useSelector(state => state.productList)
+  // destructure our req, response details stored in redux store
   const { loading, error, products } = productList
 
   useEffect(() => {

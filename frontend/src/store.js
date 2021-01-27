@@ -18,6 +18,7 @@ import {
   userUpdateProfileReducer,
 } from "./reducers/userReducers";
 
+// initial state of app
 const initialState = {
   userSignin: {
     userInfo: localStorage.getItem("userInfo")
@@ -35,6 +36,7 @@ const initialState = {
   },
 };
 
+// updates the state and return a new state
 const reducer = combineReducers({
   productList: productListReducer,
   details: productDetailsReducer,
@@ -51,6 +53,7 @@ const reducer = combineReducers({
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// redux store accepts reducer, initial state and optional middleware
 const store = createStore(
   reducer,
   initialState,
