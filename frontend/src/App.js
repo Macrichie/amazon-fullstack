@@ -18,10 +18,11 @@ import SigninScreen from "./pages/SigninScreen";
 function App() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  
   const dispatch = useDispatch();
-
   const signoutHandler = () => {
     dispatch(signout());
   };
@@ -103,7 +104,7 @@ function App() {
         <main>
           {/* /cart/:id? -> ? is added so if user directly goto cart, it should show shopping cart without adding a new item to the cart */}
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          
+
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>

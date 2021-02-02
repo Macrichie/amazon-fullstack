@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 const __dirname = path.resolve();
-
+// Database connection
 mongoose.connect(
   process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/amazonfs",
   {
@@ -40,11 +40,7 @@ app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
 );
 
-// list all product
-// app.get("/", (req, res) => {
-//   res.send("Server is up and running");
-// });
-// Error Handler
+// Error catcher, all errors will be redirected to this middleware and the right error message will be sent to the frontend
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });

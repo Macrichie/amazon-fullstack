@@ -15,7 +15,7 @@ import {
   ORDER_USER_LIST_SUCCESS,
 } from "../constants/orderConstants";
 
-export const orderReducer = (state = {}, action) => {
+export const orderCreateReducer = (state = {}, action) => {
   switch (action.type) {
     case ORDER_CREATE_REQUEST:
       return { loading: true };

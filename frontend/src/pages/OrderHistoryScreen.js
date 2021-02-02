@@ -7,11 +7,10 @@ import MessageBox from "../components/MessageBox";
 function OrderHistoryScreen(props) {
   const orderUserList = useSelector((state) => state.orderUserList);
   const { loading, error, orders } = orderUserList;
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listUserOrder())
-  }, [dispatch])
+    dispatch(listUserOrder());
+  }, [dispatch]);
 
   return (
     <div className="orderHistory">
@@ -38,9 +37,7 @@ function OrderHistoryScreen(props) {
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>${order.totalPrice.toFixed(2)}</td>
-                <td>
-                  {order.isPaid ? order.paidAt.substring(0, 10) : "Not Paid"}
-                </td>
+                <td>{order.isPaid ? order.paidAt : "Not Paid"}</td>
                 <td>
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)

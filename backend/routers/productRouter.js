@@ -5,11 +5,11 @@ import Product from "../models/productModel.js";
 
 const productRouter = express.Router();
 
-// Send data to frontend
+// Send list of products to frontend
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const products = await Product.find({});
+    const products = await Product.find({}); // get all products
     res.send(products);
   })
 );
@@ -23,6 +23,7 @@ productRouter.get(
   })
 );
 
+// Send product details to frontend
 productRouter.get('/:id', expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if(product) {

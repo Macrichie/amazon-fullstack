@@ -8,14 +8,16 @@ import MessageBox from "../components/MessageBox";
 function SigninScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  // redirect
+  // check for query string, if it exist, return the second value, else redirect to home screen
+  const redirect = props.location.search
+  ? props.location.search.split("=")[1]
+  : "/";
+  
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
-  // redirect
-  const redirect = props.location.search
-    ? props.location.search.split("=")[1]
-    : "/";
-
+  
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     // Signin action

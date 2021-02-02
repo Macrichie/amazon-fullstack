@@ -34,8 +34,9 @@ function OrderScreen(props) {
       };
       document.body.appendChild(script);
     };
-    // if order doesn't exist, load it by _id from backend, else perform action
+    // if order doesn't exist, load it by _id from backend, else proceed to complete payment transaction
     if (!order || successPay || (order && order._id !== orderId)) {
+      // reset order pay to avoid infinite reloading
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     } else {
@@ -172,7 +173,6 @@ function OrderScreen(props) {
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}
                       {loadingPay && <LoadingBox></LoadingBox>}
-
                       <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}

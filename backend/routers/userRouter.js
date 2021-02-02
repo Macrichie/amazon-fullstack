@@ -21,15 +21,17 @@ userRouter.get(
 userRouter.post(
   "/signin",
   expressAsynHandler(async (req, res) => {
+    // find user email in the database
     const user = await User.findOne({ email: req.body.email });
     if (user) {
+      // compare password entered with the hashed password in database
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
-          isSeller: user.isSeller,
+          // isSeller: user.isSeller,
           token: generateToken(user),
         });
         return;
@@ -43,6 +45,7 @@ userRouter.post(
 userRouter.post(
   "/register",
   expressAsynHandler(async (req, res) => {
+    // create new user by passing an instance of User object
     const user = new User({
       name: req.body.name,
       email: req.body.email,

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 
-function ShippingAddressScreen(props) {
+function ShippingAddressScreen(props) {  
   // get shippingAddress from cart Object in redux store
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
@@ -20,6 +20,7 @@ function ShippingAddressScreen(props) {
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
+  
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
@@ -28,6 +29,7 @@ function ShippingAddressScreen(props) {
     dispatch(
       saveShippingAddress({ fullName, address, city, postalCode, country })
     );
+    // redirect to payment screen
     props.history.push("/payment");
   };
 

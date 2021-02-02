@@ -49,10 +49,10 @@ function RegisterScreen(props) {
         <div>
           <label htmlFor="name">Name</label>
           <input
-            type="name"
+            type="text"
             id="name"
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter name and surname"
+            placeholder="Example: John Doe"
             required
           />
         </div>
